@@ -1,21 +1,20 @@
-// index.tsx
+// login.tsx
 
 import { createFileRoute, redirect } from '@tanstack/react-router'
+import { Page } from '@/components/routes/login'
 import { getUserFn } from '@/lib/user'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/login')({
   beforeLoad: async () => {
     const user = await getUserFn()
 
     if (user) {
       throw redirect({ to: '/main' })
-    } else {
-      throw redirect({ to: '/login' })
     }
   },
-  component: App,
+  component: LoginPage,
 })
 
-function App() {
-  return null
+function LoginPage() {
+  return <Page />
 }

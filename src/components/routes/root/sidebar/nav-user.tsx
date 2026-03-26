@@ -1,4 +1,3 @@
-"use client"
 
 import {
   Avatar,
@@ -24,12 +23,14 @@ import { ChevronsUpDownIcon, SparklesIcon, BadgeCheckIcon, CreditCardIcon, BellI
 
 export function NavUser({
   user,
+  onLogout,
 }: {
   user: {
     name: string
     email: string
     avatar: string
   }
+  onLogout?: () => void | Promise<void>
 }) {
   const { isMobile } = useSidebar()
 
@@ -98,7 +99,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={onLogout}>
               <LogOutIcon
               />
               Log out

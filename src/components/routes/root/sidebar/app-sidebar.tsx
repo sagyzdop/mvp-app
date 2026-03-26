@@ -1,11 +1,9 @@
-"use client"
-
 import * as React from "react"
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/routes/root/sidebar/nav-main"
+import { NavProjects } from "@/components/routes/root/sidebar/nav-projects"
+import { NavSecondary } from "@/components/routes/root/sidebar/nav-secondary"
+import { NavUser } from "@/components/routes/root/sidebar/nav-user"
 import {
   Sidebar,
   SidebarContent,
@@ -17,6 +15,12 @@ import {
 } from "@/components/ui/sidebar"
 import { TerminalSquareIcon, BotIcon, BookOpenIcon, Settings2Icon, LifeBuoyIcon, SendIcon, FrameIcon, PieChartIcon, MapIcon, TerminalIcon } from "lucide-react"
 
+type SidebarUser = {
+  name: string
+  email: string
+  image?: string | null
+}
+
 const data = {
   user: {
     name: "shadcn",
@@ -26,7 +30,7 @@ const data = {
   navMain: [
     {
       title: "Playground",
-      url: "#",
+      url: "/playground", // Updated URL
       icon: (
         <TerminalSquareIcon
         />
@@ -168,14 +172,27 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({
+  user,
+  onLogout,
+  ...props
+}: React.ComponentProps<typeof Sidebar> & {
+  user?: SidebarUser
+  onLogout?: () => void | Promise<void>
+}) {
+  const displayUser = {
+    name: user?.name ?? data.user.name,
+    email: user?.email ?? data.user.email,
+    avatar: user?.image ?? data.user.avatar,
+  }
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <a href="/main">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <TerminalIcon className="size-4" />
                 </div>
@@ -194,7 +211,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={displayUser} onLogout={onLogout} />
       </SidebarFooter>
     </Sidebar>
   )
