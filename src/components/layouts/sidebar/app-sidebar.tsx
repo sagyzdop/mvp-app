@@ -1,9 +1,9 @@
 import * as React from "react"
 
-import { NavMain } from "@/components/routes/root/sidebar/nav-main"
-import { NavProjects } from "@/components/routes/root/sidebar/nav-projects"
-import { NavSecondary } from "@/components/routes/root/sidebar/nav-secondary"
-import { NavUser } from "@/components/routes/root/sidebar/nav-user"
+import { NavMain } from "@/components/layouts/sidebar/nav-main"
+import { NavProjects } from "@/components/layouts/sidebar/nav-projects"
+import { NavSecondary } from "@/components/layouts/sidebar/nav-secondary"
+import { NavUser } from "@/components/layouts/sidebar/nav-user"
 import {
   Sidebar,
   SidebarContent,

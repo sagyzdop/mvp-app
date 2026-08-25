@@ -9,7 +9,7 @@ import {
 } from '@tanstack/react-router'
 import { getUserFn } from '@/lib/user'
 import { authClient } from '@/lib/auth/auth-client'
-import { AppSidebar } from '@/components/routes/root/sidebar/app-sidebar'
+import { AppSidebar } from '@/components/layouts/sidebar/app-sidebar'
 import {
   Breadcrumb,
   BreadcrumbItem,
