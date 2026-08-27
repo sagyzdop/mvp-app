@@ -18,7 +18,7 @@ export const auth = betterAuth({
     },
   },
   database: drizzleAdapter(
-    drizzle(env.mvp_app_d1 as D1Database, { schema }),
+    drizzle(env.mvp_app_boilerplate_d1 as D1Database, { schema }),
     {
       provider: 'sqlite',
     }
