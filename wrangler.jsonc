@@ -16,9 +16,9 @@
 	"upload_source_maps": true,
 	"d1_databases": [
 		{
-			"binding": "mvp_app_d1",
-			"database_name": "mvp-app-d1",
-			"database_id": "48bd4665-4b9e-4e2a-818c-0744c9c33a30"
+			"binding": "mvp_app_boilerplate_d1",
+			"database_name": "mvp-app-boilerplate-d1",
+			"database_id": "e2984e14-6b9a-49ac-b011-6f29fc956e18"
 		}
 	]
 	/**
