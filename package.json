@@ -1,5 +1,5 @@
 {
-	"name": "mvp-app",
+	"name": "mvp-app-boilerplate",
 	"private": true,
 	"type": "module",
 	"imports": {
