@@ -22,7 +22,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar'
-import { Toaster } from '@/components/ui/sonner'
+import { Toaster } from '@/components/ui/toast'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
 export const Route = createFileRoute('/_authenticated')({
@@ -47,10 +47,10 @@ function AuthenticatedLayout() {
   const currentSegment = pathname.split('/').filter(Boolean).at(-1)
   const currentPageLabel = currentSegment
     ? currentSegment
-        .split(/[-_]/)
-        .filter(Boolean)
-        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-        .join(' ')
+      .split(/[-_]/)
+      .filter(Boolean)
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ')
     : 'Main'
 
   const handleLogout = async () => {
@@ -69,12 +69,12 @@ function AuthenticatedLayout() {
               <SidebarTrigger className="-ml-1" />
               <Separator
                 orientation="vertical"
-                className="mr-2 data-[orientation=vertical]:h-max" 
+                className="mr-2 data-[orientation=vertical]:h-max"
               />
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    <BreadcrumbPage>{currentPageLabel}</BreadcrumbPage> 
+                    <BreadcrumbPage>{currentPageLabel}</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
